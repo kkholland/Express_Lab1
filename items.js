@@ -27,37 +27,30 @@ let cartItems = [
 
 // respond with all items or search for query parameters
 items.get("/cart-items", (req, res) => {
-    let results = [];
+    let results = cartItems;
 
     if(req.query.maxPrice){
         results = cartItems.filter(item => item.price <= +req.query.maxPrice);
     }
 
     if(req.query.prefix){
-        if(results.length === 0){
-            results = cartItems;
-        }
-
         results = results.filter(item => item.product.toLowerCase().includes(req.query.prefix.toLowerCase()));
     }
 
     if(req.query.pageSize){
-        if(results.length === 0){
-            results = cartItems;      
-        }
-
         if (results.length > req.query.pageSize) {
             results.length = req.query.pageSize
         }
     }
 
-    res.json(!req.query.maxPrice && !req.query.prefix && !req.query.pageSize? cartItems : results);
+    res.json(results);
     
 });
 
 // respond with 1 specific item by id
 items.get('/cart-items/:id', (req, res) => {
     let result = cartItems.filter(item => item.id === +req.params.id);
+    
     if(result.length === 0){
         result = 'ID Not Found';
         res.status(404);
@@ -99,7 +92,7 @@ items.put("/cart-items/:id", (req, res) => {
 
 });
 
-// accept DELETE request at URI: /students
+// delete an item by id
 items.delete("/cart-items/:id", (req, res) => {
 
     let resultIndex = cartItems.findIndex(item => item.id === +req.params.id);
@@ -112,7 +105,5 @@ items.delete("/cart-items/:id", (req, res) => {
         res.status(204);
     }
 });
-
-
 
 module.exports = items;
