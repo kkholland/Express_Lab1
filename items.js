@@ -30,7 +30,7 @@ items.get("/cart-items", (req, res) => {
     let results = cartItems;
 
     if(req.query.maxPrice){
-        results = cartItems.filter(item => item.price <= +req.query.maxPrice);
+        results = results.filter(item => item.price <= +req.query.maxPrice);
     }
 
     if(req.query.prefix){
@@ -50,7 +50,7 @@ items.get("/cart-items", (req, res) => {
 // respond with 1 specific item by id
 items.get('/cart-items/:id', (req, res) => {
     let result = cartItems.filter(item => item.id === +req.params.id);
-    
+
     if(result.length === 0){
         result = 'ID Not Found';
         res.status(404);
