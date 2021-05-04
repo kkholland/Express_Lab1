@@ -1,11 +1,11 @@
 // require the Express module
 const express = require('express');
-const items = require('./items')
+const router = require('./items')
 
 // creates an instance of an Express server
 const app = express();
 
-app.use('/', items);
+app.use('/', router);
 
 // define the port
 const port = 3000;
