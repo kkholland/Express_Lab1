@@ -18,6 +18,11 @@ section{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+section.item:hover{
+    transform: scale(1.01);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+}
+
 p{
     width: 100px;
     text-align: center;

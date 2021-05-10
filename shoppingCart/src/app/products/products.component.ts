@@ -11,8 +11,8 @@ export class ProductsComponent implements OnInit {
   cartItems: any | null = null;
   newItem: boolean = false;
   newProduct: string = '';
-  newPrice: number = 0;
-  newQuantity: number = 0;
+  newPrice: number = 5;
+  newQuantity: number = 1;
 
   constructor(private service: CartApiService) { }
 

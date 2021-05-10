@@ -71,9 +71,11 @@ router.post("/cart-items", (req, res) => {
     if(!price){
         return res.status(400).send('Invalid price');
     }
+
+
     
     let newItem = {
-        id: cartItems.length+100,
+        id: cartItems[cartItems.length-1].id+1,
         product: req.body.product,
         price: price,
         quantity: quantity
