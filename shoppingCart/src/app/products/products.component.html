@@ -26,17 +26,17 @@
         </div>
         
         <form>
-            <label>Product</label>
-            <input type='text'/>
+            <label for='product'>Product</label>
+            <input type='text' name='product' id='product' [(ngModel)]='newProduct'/>
 
-            <label>Price</label>
-            <input type='number'/>
+            <label for='price'>Price</label>
+            <input type='number'name='price' id='price' [(ngModel)]='newPrice'/>
 
-            <label>Quantity</label>
-            <input type='number'/>
+            <label for='quantity'>Quantity</label>
+            <input type='number'name='quantity' id='quantity' [(ngModel)]='newQuantity'/>
         </form>
         
-        <button>Add Item</button>
+        <button (click)='addItem(newProduct, newPrice, newQuantity)'>Add Item</button>
     </section>
     
 </div>

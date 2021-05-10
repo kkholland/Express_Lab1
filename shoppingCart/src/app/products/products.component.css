@@ -80,6 +80,12 @@ form{
     
 }
 
+input{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    padding: 5px;
+}
+
 .pop-up-form label{
     margin-top: 10px;
 }
