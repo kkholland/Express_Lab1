@@ -1,0 +1,19 @@
+<h1>Shopping Cart</h1>
+
+<button>Add</button>
+
+<section class='flex-row-space-evenly pinkbg title'>
+    <p class='small'>#</p>
+    <p class='large'>Product</p>
+    <p>Price</p>
+    <p>Quantity</p>
+    <p class='small'>Delete</p>
+</section>
+
+<section class='flex-row-space-evenly item' *ngFor='let item of cartItems'>
+    <p class='small'>{{item.id}}</p>
+    <p class='large'>{{item.product}}</p>
+    <p>{{item.price | currency}}</p>
+    <p>{{item.quantity}}</p>
+    <button class='small' (click)='deleteItem(item)'>X</button>
+</section>
