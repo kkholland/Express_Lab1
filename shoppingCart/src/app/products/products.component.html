@@ -1,6 +1,6 @@
 <h1>Shopping Cart</h1>
 
-<button>Add</button>
+<button (click)='newItem = true'>Add</button>
 
 <section class='flex-row-space-evenly pinkbg title'>
     <p class='small'>#</p>
@@ -17,3 +17,26 @@
     <p>{{item.quantity}}</p>
     <button class='small' (click)='deleteItem(item)'>X</button>
 </section>
+
+<div class=pop-up-bg *ngIf='newItem'>
+    <section class=pop-up-form>
+        <div class='flex-row'>
+            <h2>New Item</h2>
+            <button class='small float-right' (click)='newItem = false'>X</button>
+        </div>
+        
+        <form>
+            <label>Product</label>
+            <input type='text'/>
+
+            <label>Price</label>
+            <input type='number'/>
+
+            <label>Quantity</label>
+            <input type='number'/>
+        </form>
+        
+        <button>Add Item</button>
+    </section>
+    
+</div>

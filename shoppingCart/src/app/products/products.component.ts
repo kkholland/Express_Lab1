@@ -9,6 +9,7 @@ import { Item } from '../item';
 })
 export class ProductsComponent implements OnInit {
   cartItems: any | null = null;
+  newItem: boolean = false;
 
   constructor(private service: CartApiService) { }
 
